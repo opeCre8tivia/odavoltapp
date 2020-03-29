@@ -11,7 +11,8 @@ const PORT = process.env.PORT || 5000;
 
 //connecting to mongodb
 
-//mongodb+srv://opeodavolt:<Myspace20182018@cluster0-u4gqc.mongodb.net/test?retryWrites=true&w=majority
+//mongodb+srv://opeodavolt:<password>@cluster0-u4gqc.mongodb.net/test?retryWrites=true&w=majority
+//mongodb://localhost:27017/ordervolt
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/ordervolt',  {useNewUrlParser : true,useUnifiedTopology: true, useFindAndModify:false}, (err)=>{
     if(err === true){
@@ -25,6 +26,7 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/ordervolt
 // body parser middleware
 
 app.use(express.json());
+app.use(express.urlencoded({extended:false}));
 
 //cors middle ware to allow requests from diffrent domain name
 
