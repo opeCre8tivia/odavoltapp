@@ -1,6 +1,9 @@
 {
   "name": "ordervolt",
   "version": "1.0.0",
+  "engines": {
+    "node": "10.16.0"
+  },
   "description": "online delivery app",
   "main": "index.js",
   "scripts": {
