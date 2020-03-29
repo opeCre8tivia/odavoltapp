@@ -1,0 +1,204 @@
+
+/* varaible colors --- */
+:root{
+    --ov-orange:#f16121;
+    --ov-green:#2EB34A;
+    --ov-yellow:#F8B23E;
+    --ov-gray-shade-one:#A99999;
+    --ov-gray-shade-two:#B7B6B6;
+    --ov-asbestos:#7f8c8d;
+    --ov-gray--shade-three:#f2f2f2;
+    --ov-dark-blue:rgb(0, 0, 32);
+    --ov-white:#fff;
+
+}
+
+.vo-container-dashboard{
+    position: relative;
+    width: 100%;
+
+}
+
+/* ---- profile ---- */
+.ov-profile{
+    width: 100%;
+    height:10vh;
+    background-color:var(--ov-dark-blue);
+}
+
+.ov-profile-art{
+    color:var( --ov-gray--shade-three);
+    position:absolute;
+
+}
+
+
+/* -- dashboard --*/
+
+/* ----- dashboard menu ---  */
+
+.ov-dashboard-menu-cont{
+    width: 200px;
+    min-height: 90vh; 
+    display: block;
+}
+
+.vo-dashboard-menu{
+    width: 200px;
+    height: 90vh;
+    background-color:var(--ov-gray-shade-three);
+    position: relative;
+}
+
+.vo-dashboard-menu h2{
+    text-transform: uppercase;
+    text-align: left;
+    margin-left: 20px;
+
+}
+/*  dashboard ul  --- */
+.vo-dashboard-menu ul{
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+}
+
+
+.vo-dashboard-menu a{
+   display:block;
+   color: var( --ov-dark-blue);
+   cursor: pointer;
+   text-align: left;
+   padding: 20px;
+   margin-top: 10px;
+   font-size: smaller;
+}
+
+
+.vo-dashboard-menu a:hover{
+    background-color:rgb(0, 0, 32);
+    text-decoration: none;
+    color: #fff;
+    outline: none;
+    transition: ease-in-out 0.6s;
+
+}
+
+.vo-dashboard-menu a:active{
+    outline: none;
+    background: var(--ov-orange);
+}
+
+/* --- sections */
+
+.ov-containers{
+    background-color:var( --ov-gray-shade-three);
+    height: auto;
+    position: absolute;
+    width:80%;
+    margin:10px auto;
+    top: 10vh;
+    right: 10px;
+}
+
+.ov-section-one, .ov-section-two{
+    height: 38vh;
+    margin: 10px auto;
+    border: 1px solid var(--ov-asbestos);
+    background:#fff;
+}
+
+.ov-dash-scroll-cont{
+	width:100%;
+	max-height:200px;
+	overflow-x: auto;
+
+}
+
+ 
+/* small sections ---*/
+/*
+.ov-section2{
+    height: 30px;
+    background-color: lawngreen;
+
+}
+
+.ov-section3{
+    height: 30px;
+    background-color: red;
+
+}
+*/
+
+.ov-section1,.ov-section2,.ov-section3{
+    height:40vh;
+    border: 1px solid var(--ov-asbestos);
+    margin-top: 20px;
+    margin: 10px auto;
+    background:#fff;
+}
+
+
+
+
+.ov-button{
+    display: none;
+}
+
+
+
+/*==================== order styles ================*/
+.new-order{
+    display:flex;
+    flex-wrap: nowrap;
+    background:#fdf9f9;
+    width:100%;
+    height:50px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    padding: 5px;
+    position: relative;
+    font-size: 80%;
+}
+
+.new-order div{
+    margin-right: 20px;
+
+}
+
+.new-tag{
+  margin-left: 10px;
+  color:#ffffff;
+}
+
+.new-order-check-box{
+  position:absolute;
+  right:2px;
+  top:50%;
+  transform: translateY(-50%);
+}
+.order-info{
+  cursor: pointer;
+}
+
+
+@media only screen and (max-width:768px){
+    .ov-dashboard-menu-cont{
+        background-color: yellow;
+        display:none;
+        position:absolute;
+        left:0;
+        height:10px;
+        z-index: 1;
+    }
+    .ov-button{
+        display: block;
+    }
+
+    .ov-containers{
+        width: 100%;
+        margin: auto;
+    }
+}
+
