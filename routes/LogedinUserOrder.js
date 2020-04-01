@@ -172,15 +172,14 @@ router.delete('/product-logedin-delete-all', auth, async (req,res,next)=>{
     
     try {
         
-        const items = await LogedInUserModel.find({user:req.user.id});
+        const response = await LogedInUserModel.deleteMany({user:req.user.id});
+        if(response){
+            res.json({
+                msg:'Cart cleared'
+            })
+        }
         
-        items.forEach(item=>{
-            let id = item._id.trim();
-             LogedInUserModel.findByIdAndDelete({_id:id})
-             .catch(err => console.log(err));
-
-        })
-        
+       
 
         } catch (err) {
             res.send(err.message)

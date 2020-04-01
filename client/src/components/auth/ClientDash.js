@@ -24,40 +24,41 @@ const ClientDash = (props) =>{
     //use effect
     useEffect(()=>{
         dispatch(LoadUser());
-        console.log('1000 called');
-
-        //load items to checkout
-        async function getProducts(){
-            try {
-                //check if one is loged in
-            //if loged in send request to diffrent route if not other wise
-            let authToken = localStorage.getItem('OV_TKN_1aUTh');
-            if(authToken){
-                const products =await axios.get(`http://localhost:5000/api/product-logedin-order`);
-                  //get their total for every fetch
-                  let  totalUnitPrice = products.data.reduce((total,item)=>{
-                    return  total+ parseInt(item.unitPrice);
-                },0)
-                setDashState({
-                    ...dashState,
-                    productList:products.data,
-                    total:totalUnitPrice
-                })
-            }
-            else{
-                const products =await axios.get(`http://localhost:5000/api/product-cart`);
-                setDashState({
-                    ...dashState,
-                    productList:products.data
-                })
-            }
-            } catch (err) {
-                console.log(err.message)
-            }
-    }
+       
+      
     getProducts()
      //eslint-disable-next-line
     },[dispatch,LoadUser]);
+
+      //load items to checkout
+      async function getProducts(){
+        try {
+            //check if one is loged in
+        //if loged in send request to diffrent route if not other wise
+        let authToken = localStorage.getItem('OV_TKN_1aUTh');
+        if(authToken){
+            const products =await axios.get(`http://localhost:5000/api/product-logedin-order`);
+              //get their total for every fetch
+              let  totalUnitPrice = products.data.reduce((total,item)=>{
+                return  total+ parseInt(item.unitPrice);
+            },0)
+            setDashState({
+                ...dashState,
+                productList:products.data,
+                total:totalUnitPrice
+            })
+        }
+        else{
+            const products =await axios.get(`http://localhost:5000/api/product-cart`);
+            setDashState({
+                ...dashState,
+                productList:products.data
+            })
+        }
+        } catch (err) {
+            console.log(err.message)
+        }
+}
 
     //function to redirect if user is not authenticated
 
@@ -96,12 +97,15 @@ const ClientDash = (props) =>{
 
     async function clearItems(){
         try {
-           await axios.delete(`http://localhost:5000/api/product-logedin-delete-all`);
+         const response =  await axios.delete(`http://localhost:5000/api/product-logedin-delete-all`);
+         console.log(response.data.msg);
+
         } catch (err) {
             console.log(err.message);
         }
 
-        console.log('cleared');
+       getProducts(); 
+  
     }
 
 

@@ -4,8 +4,8 @@ const auth = require('../middleware/auth')
 const CheckoutOrderModel = require('../models/CheckoutOrderModel');
 
 /*route  GET /api/product-logedin-order
-* desc   gets all products from the db
-*acess  PRIVATE
+* desc   gets all products from to show inthe admin dash
+*acess  PUBLIC
 */
 
 router.get('/new-orders' , async (req,res)=>{
@@ -32,7 +32,7 @@ router.get('/new-orders' , async (req,res)=>{
 
 
 //@router  POST /api/new-orders
-//@desc    adds orders in the db
+//@desc    adds orders to the checkout table
 //@acess   private.
 router.post('/new-orders',auth,  async (req,res)=>{
 
@@ -58,7 +58,7 @@ router.post('/new-orders',auth,  async (req,res)=>{
        const {name,mobile,orderDetails} = req.body;
        console.log(orderDetails);
 
-       //save item to anonymous section
+       //save item to checkout document section
        const newItem = new CheckoutOrderModel({
                 user,
                 name,

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect,Fragment} from 'react';
 import Notice from './Notice';
 import {Link} from 'react-router-dom';
 import {useSelector,useDispatch} from 'react-redux';
@@ -296,14 +296,18 @@ const Cart = (props) =>{
 
         
              <div className="ov-cart-summary-cont">
-                 <ul>
-                     <li>Sub-total: {total} </li>
-                     <li>Tax:0.00</li>
-                     <li>Delivery Fee: {deliveryFee} </li>
-                     <li>TOTAL:  {total + deliveryFee} </li>
-                 </ul>
-                {authToken ? <Link to="/client-dash"><button type="button"  className="ov-cart-checkout-btn"  >PROCEED TO CHECK OUT</button></Link> :
-                <button type="button"  className="ov-cart-checkout-btn" onClick={showNotice}   >PROCEED TO CHECK OUT</button> }
+             {productList.length !==0 ? <Fragment><ul>
+                            <li><div className="ov-cart-span">Sub-total: </div>{total} </li>
+                            <li><div className="ov-cart-span">Tax:</div>0.00</li>
+                            <li><div className="ov-cart-span">Delivery Fee:</div> {deliveryFee} </li>
+                            <li><div className="ov-cart-span">TOTAL: </div> {total + deliveryFee} </li>
+                        </ul>
+                         {authToken ?<Link to="/client-dash"  > <button type="button"  className="ov-cart-checkout-btn"  >PROCEED TO CHECK OUT</button></Link> :
+                          <button type="button"  className="ov-cart-checkout-btn" onClick={()=>{
+                              showNotice();
+                          }} >PROCEED TO CHECK OUT</button> } </Fragment> :
+                <button type="button"  className="ov-cart-checkout-btn"  >YOUR CART IS EMPTY</button>
+                }
              </div>
              
          </div>

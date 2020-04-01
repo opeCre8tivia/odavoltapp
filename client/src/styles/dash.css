@@ -96,14 +96,14 @@
     height: auto;
     position: absolute;
     width:80%;
-    margin:10px auto;
+    margin:2px auto;
     top: 10vh;
     right: 10px;
 }
 
 .ov-section-one, .ov-section-two{
-    height: 38vh;
-    margin: 10px auto;
+    min-height: 50vh;
+    margin: 2px auto;
     border: 1px solid var(--ov-asbestos);
     background:#fff;
 }
@@ -180,6 +180,67 @@
 }
 .order-info{
   cursor: pointer;
+}
+
+
+.ov-order-details-cont{
+    position: absolute;
+    top:0;
+    width: 80%;
+    height: auto;
+    display: none;
+    z-index: 1;
+}
+
+.ov-new-order-check-box{
+    background-color: pink;
+    width: 80px;
+
+}
+/*cek box style */
+input[type="checkbox"]{
+	position:relative;
+	width:40px;
+	height:20px;
+	-webkit-appearance:none;
+	background:#c6c6c6;
+	outline: none;
+	border-radius: 15px;
+	box-shadow: inset 0 0 5px grey;
+	/*transition:5s;*/
+}
+
+input:checked[type="checkbox"]{
+	background:red;
+}
+
+input[type="checkbox"]:before{
+	content:"";
+	position: absolute;
+	top:0;
+	left:0;
+	width:20px;
+	height:20px;
+	border-radius: 10px;
+	background:#fff;
+	transition:scale(1.1);
+	box-shadow: 0 1px 2px 1px grey;
+	transition: .5s;
+}
+
+input:checked[type="checkbox"]:before{
+	left:20px;
+	
+}
+
+
+.ov-new-order-detail-cont{
+    position: absolute;
+    top:0;
+    width: 50%;
+    background-color: aqua;
+    min-height: 500px;
+    display: none;
 }
 
 
