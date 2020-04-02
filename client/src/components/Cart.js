@@ -46,7 +46,7 @@ const Cart = (props) =>{
             if(authToken){
                 //for loged in user
              
-                const cartItems =await axios.get(`http://localhost:5000/api/product-logedin-order`);
+                const cartItems =await axios.get(`/api/product-logedin-order`);
                 
                 //get their total for every fetch
                 let  totalUnitPrice = cartItems.data.reduce((total,item)=>{
@@ -63,7 +63,7 @@ const Cart = (props) =>{
             else{
                 //for anonymous user
                 
-                const response =await axios.get(`http://localhost:5000/api/product-cart`);
+                const response =await axios.get(`/api/product-cart`);
 
                 const cartItems = response.data.filter(item => item.anonUserToken.toString() === anonToken);
                 console.log(cartItems)
@@ -101,7 +101,7 @@ const Cart = (props) =>{
         try {
 
              //fetch the original items coz there i need for the original price
-             const products = await axios.get(`http://localhost:5000/api/product`);
+             const products = await axios.get(`/api/product`);
              let productlist = products.data
              let prod = productlist.find(item => {
                  return item.name === name;
@@ -115,7 +115,7 @@ const Cart = (props) =>{
            //if loged in send request to diffrent route if not other wise
            let authToken = localStorage.getItem('OV_TKN_1aUTh');
                if(authToken){
-                   const res = await axios.put(`http://localhost:5000/api/product-logedin-order/:${id}`,{
+                   const res = await axios.put(`/api/product-logedin-order/:${id}`,{
                     user,
                     name,
                     description,
@@ -130,7 +130,7 @@ const Cart = (props) =>{
                    
                }
                else{
-                   const res = await axios.put(`http://localhost:5000/api/product-cart/:${id}`, {
+                   const res = await axios.put(`/api/product-cart/:${id}`, {
                     anonUserToken:anonToken,
                     name,
                     description,
@@ -161,7 +161,7 @@ const Cart = (props) =>{
 
         try {
                 //fetch the original items coz there i need for the original price
-               const products = await axios.get(`http://localhost:5000/api/product`);
+               const products = await axios.get(`/api/product`);
               let productlist = products.data
               let prod = productlist.find(item => {
                   return item.name === name;
@@ -181,7 +181,7 @@ const Cart = (props) =>{
            //if loged in send request to diffrent route if not other wise
            let authToken = localStorage.getItem('OV_TKN_1aUTh');
            if(authToken){
-               const res = await axios.put(`http://localhost:5000/api/product-logedin-order/:${id}`,{
+               const res = await axios.put(`/api/product-logedin-order/:${id}`,{
                 name,
                 description,
                 units,
@@ -195,7 +195,7 @@ const Cart = (props) =>{
                
            }
            else{
-               const res = await axios.put(`http://localhost:5000/api/product-cart/:${id}`, {
+               const res = await axios.put(`/api/product-cart/:${id}`, {
                 anonUserToken:anonToken,
                 name,
                 description,
@@ -230,12 +230,12 @@ const Cart = (props) =>{
        //if loged in send request to diffrent route if not other wise
        let authToken = localStorage.getItem('OV_TKN_1aUTh');
            if(authToken){
-               const res = await axios.delete(`http://localhost:5000/api/product-logedin-order/:${id}`);
+               const res = await axios.delete(`/api/product-logedin-order/:${id}`);
                console.log(res.data)
                
            }
            else{
-               const res = await axios.delete(`http://localhost:5000/api/product-cart/:${id}`);
+               const res = await axios.delete(`/api/product-cart/:${id}`);
                console.log(res.data)
                
               

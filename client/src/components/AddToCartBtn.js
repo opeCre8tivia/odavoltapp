@@ -40,14 +40,14 @@ const HideAddedAlert = ()=>{
 
             if(authToken){
                 //check whether item with the same name already exists in the order  table
-                const orderz = await axios.get(`http://localhost:5000/api/product-logedin-order`);
+                const orderz = await axios.get(`/api/product-logedin-order`);
                 const found = orderz.data.find(order => order.name === name);
                         if(found){
                                  console.log('item already exists');
                         }
                         else{
 
-                                    const res = await axios.post(`http://localhost:5000/api/product-logedin-order`, {id});
+                                    const res = await axios.post(`/api/product-logedin-order`, {id});
                                     if(res.data.msg === "Item added"){
                                         dispatch({type:'ITEM_ADDED'});
                                         showAddedAlert();
@@ -62,13 +62,13 @@ const HideAddedAlert = ()=>{
 
             const anonUserToken =  localStorage.getItem('OV_Anon_2aUTh');
              //check whether item with the same name already exists in the order  table
-             const orderz = await axios.get(`http://localhost:5000/api/product-cart`);
+             const orderz = await axios.get(`/api/product-cart`);
              const found = orderz.data.find(order => order.name === name && order.anonUserToken.toString() === anonUserToken);
                     if(found){
                              console.log('item already exists');
                     }
                     else{
-                                const res = await axios.post(`http://localhost:5000/api/product-cart`, {id,anonUserToken});
+                                const res = await axios.post(`/api/product-cart`, {id,anonUserToken});
                                 if(res.data.msg === "Item added"){
                                     dispatch({type:'ITEM_ADDED'});
                                     showAddedAlert();

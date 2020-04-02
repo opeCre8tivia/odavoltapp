@@ -18,7 +18,7 @@ connectDB();//
 //const MONGODB_URI = 'mongodb+srv://opeodavolt:Myspace20182018@cluster0-u4gqc.mongodb.net/odavolt?retryWrites=true&w=majority';
 //mongodb://localhost:27017/ordervolt
 
-// mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://opeodavolt:Myspace20182018@cluster0-u4gqc.mongodb.net/odavolt?retryWrites=true&w=majority', 
+// mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/ordervolt', 
 //  {   useNewUrlParser : true,
 //     useUnifiedTopology: true,
 //      useFindAndModify:false

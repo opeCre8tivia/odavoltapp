@@ -40,7 +40,7 @@ const CartIcon = (props) =>{
         if(authToken){
             //for loged in user
             axios.defaults.headers.common['x-auth-token'] = authToken;
-            const cartItems =await axios.get(`http://localhost:5000/api/product-logedin-order`);
+            const cartItems =await axios.get(`/api/product-logedin-order`);
            
             setCartIcontState({
                 ...cartIconState,
@@ -49,7 +49,7 @@ const CartIcon = (props) =>{
         }
         else{
             //for anonymous user
-            const response =await axios.get(`http://localhost:5000/api/product-cart`);
+            const response =await axios.get(`/api/product-cart`);
             const cartItems = response.data.filter(item => item.anonUserToken.toString() === anonToken);
             setCartIcontState({
              ...cartIconState,

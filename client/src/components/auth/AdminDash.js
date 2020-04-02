@@ -15,7 +15,7 @@ const AdminDash = (props) =>{
   //get all orders from the back end
   async function getOrders(){
    try {
-    const res = await axios.get(`http://localhost:5000/api/new-orders`);
+    const res = await axios.get(`/api/new-orders`);
     if(res){
         setAllOrders(res.data);
     }

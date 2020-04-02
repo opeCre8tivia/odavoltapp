@@ -41,10 +41,11 @@ body{
 	top:50%;
 	transform:translateY(-50%);
 	width:150px;
-	height:60px;
+	height:80px;
 }
 
 .ov-logo{
+	width: 100%;
 	position: absolute;
 	left:1px;
 	top:50%;
@@ -52,10 +53,12 @@ body{
 }
 
 .ov-auth-btn-cont{
+	max-width: 40%;
 	position: absolute;
-	right:10px;
+	right:5px;
 	top:50%;
 	transform:translateY(-50%);
+	
 }
 
 .ov-signup-btn{
@@ -64,6 +67,7 @@ body{
 	font-family: Arial, Helvetica, sans-serif;
 	border:1px solid var(--ov-orange);
 	margin-right: 8px;
+	
 }
 
 .ov-signup-btn:hover{
@@ -76,11 +80,13 @@ body{
 	border:1px solid var(--ov-orange);
 	color:var(--ov-orange);
 	font-family: Arial, Helvetica, sans-serif;
+	
 }
 
 .ov-login-btn:hover{
 	background: var(--ov-orange);
 	color:#fff;
+	
 }
 
 
@@ -691,11 +697,21 @@ body{
 		.ov-notice-cont{
 			width:80%;
 		}
+		.ov-logo-cont{
+			width: 100px;
+		}
 }
 
 
 @media only screen and (max-width:640px){
 	.ov-product-cont{
 		width:80%;
+	}
+	.ov-auth-btn-cont{
+		display:flex;
+		flex-wrap: nowrap;
+	}
+	.ov-signup-btn , .ov-login-btn{
+		font-size: 11px;
 	}
 }

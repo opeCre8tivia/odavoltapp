@@ -37,7 +37,7 @@ const ClientDash = (props) =>{
         //if loged in send request to diffrent route if not other wise
         let authToken = localStorage.getItem('OV_TKN_1aUTh');
         if(authToken){
-            const products =await axios.get(`http://localhost:5000/api/product-logedin-order`);
+            const products =await axios.get(`/api/product-logedin-order`);
               //get their total for every fetch
               let  totalUnitPrice = products.data.reduce((total,item)=>{
                 return  total+ parseInt(item.unitPrice);
@@ -49,7 +49,7 @@ const ClientDash = (props) =>{
             })
         }
         else{
-            const products =await axios.get(`http://localhost:5000/api/product-cart`);
+            const products =await axios.get(`/api/product-cart`);
             setDashState({
                 ...dashState,
                 productList:products.data
@@ -76,7 +76,7 @@ const ClientDash = (props) =>{
 
            try {
 
-            const response = await axios.post(`http://localhost:5000/api/new-orders`, {
+            const response = await axios.post(`/api/new-orders`, {
                 name,
                 mobile,
                 orderDetails
@@ -97,7 +97,7 @@ const ClientDash = (props) =>{
 
     async function clearItems(){
         try {
-         const response =  await axios.delete(`http://localhost:5000/api/product-logedin-delete-all`);
+         const response =  await axios.delete(`/api/product-logedin-delete-all`);
          console.log(response.data.msg);
 
         } catch (err) {
