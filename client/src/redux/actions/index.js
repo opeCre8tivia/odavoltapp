@@ -33,7 +33,7 @@ export const LoadUser = () =>{
            setAuthToken(token);
 
             try {
-                let res = await axios.get(`http://localhost:5000/api/auth`);
+                let res = await axios.get(`/api/auth`);
                 console.log(res.data)
                 dispatch({
                     type:'USER_LOADED',
@@ -59,7 +59,7 @@ export const RegisterUserAction = (formData)=>{
             //make arequest to api/users  and return a token
             try{
 
-              const res = await axios.post(`http://localhost:5000/api/users`, formData);
+              const res = await axios.post(`/api/users`, formData);
 
                 dispatch({
                     type:'REGISTER_SUCCESS',
@@ -99,7 +99,7 @@ export const LoginUserAction = (formData) =>{
     return async function (dispatch){
       try {
 
-        let res = await axios.post(`http://localhost:5000/api/auth`, formData); //res contains user data
+        let res = await axios.post(`/api/auth`, formData); //res contains user data
         if(res.data.ov_err === true){
             dispatch({
                 type:'LOGIN_FAIL',
