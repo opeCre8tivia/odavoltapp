@@ -7,20 +7,20 @@
   "description": "online delivery app",
   "main": "index.js",
   "scripts": {
-    "build":"cd client && run npm build",
-    "install-client":"cd client && run npm install",
+    "build": "cd client && run npm build",
+    "install-client": "cd client && run npm install",
     "heroku-postbuild": "cd client && npm install && npm run build",
     "start": "node index.js",
     "client": "cd client && npm run start",
     "server": "nodemon index --ignore client/",
     "dev": "concurrently \"npm run client\" \"npm run server\""
-    
   },
   "author": "opel",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^3.0.8",
     "bcryptjs": "^2.4.3",
+    "config": "^3.3.1",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
