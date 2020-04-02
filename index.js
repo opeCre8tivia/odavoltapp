@@ -11,11 +11,10 @@ const PORT = process.env.PORT || 5000;
 
 //connecting to mongodb
 
-const MONGODB_URI = 'mongodb+srv://opeodavolt:Myspace20182018@cluster0-u4gqc.mongodb.net/odavolt?retryWrites=true&w=majority';
+//const MONGODB_URI = 'mongodb+srv://opeodavolt:Myspace20182018@cluster0-u4gqc.mongodb.net/odavolt?retryWrites=true&w=majority';
 //mongodb://localhost:27017/ordervolt
-//process.env.MONGODB_URI ||
 
-mongoose.connect( 'mongodb+srv://opeodavolt:Myspace20182018@cluster0-u4gqc.mongodb.net/odavolt?retryWrites=true&w=majority',  {useNewUrlParser : true,useUnifiedTopology: true, useFindAndModify:false}, (err)=>{
+mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://opeodavolt:Myspace20182018@cluster0-u4gqc.mongodb.net/odavolt?retryWrites=true&w=majority',  {useNewUrlParser : true,useUnifiedTopology: true, useFindAndModify:false}, (err)=>{
     if(err === true){
         console.log('Not Connected to db');
     }
