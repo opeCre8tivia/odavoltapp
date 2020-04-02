@@ -18,16 +18,18 @@ const Product = (props) =>{
 
     //useEffect hook
     useEffect(()=>{
-        const getProducts = async () =>{
-            try {
-                const products =await axios.get(`http://localhost:5000/api/product`);
-                setProductState({
-                    ...productState,
-                    productList:products.data
-                })
-            } catch (err) {
-                console.log(err.message)
-            }
+        const getProducts = () =>{
+           
+                 axios.get(`/api/product`)
+                 .then(products => {
+                    setProductState({
+                        ...productState,
+                        productList:products.data
+                    })
+                 })
+                 .catch(err => console.log(err.message));
+                
+            
     }
     getProducts();
     //eslint-disable-next-line
