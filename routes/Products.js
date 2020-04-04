@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const auth = require('../middleware/auth');
 
+
 //product model
 const ProductModel = require('../models/ProductModel')
 
@@ -50,8 +51,30 @@ router.get('/product/:id', async(req,res,next)=>{
 *acess  private
 */
 router.post('/product', async (req,res)=>{
+        const imageUrl = '';
+    //capture uploaded image info
+    if(req.files === null){
+        return res.json({
+            msg:'No file selected'
+        })
+    }
+    console.log(req.files)
+    const file = req.files.file;
+        file.mv(`${__dirname}/client/public/uploads${file.name}`, (err)=>{
+        if(err){
+            console.log(err);
+            return res.status(400).send(err)
+        }
+
+        //assign to variables
+        imageUrl = `/uploads/${file.name}`
+
+
+    })
+    
+    
     //get form data
-    const {name,description,units,unitPrice,minPrice,count,deliverToDistrict,imageUrl} = req.body;
+    const {name,description,units,unitPrice,minPrice,deliverToDistrict} = req.body;
     
     try {
 
@@ -73,7 +96,6 @@ router.post('/product', async (req,res)=>{
         units,
         unitPrice,
         minPrice,
-        count,
         deliverToDistrict,
         imageUrl
     })
